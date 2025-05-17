@@ -16,8 +16,8 @@
 			<hr>
 		</div>
 		<input type="text" name="name" placeholder="Tu nombre" class="contact-inputs" required>
-		<input type="email" name="email" placeholder="Tu Correo" class="contact-inputs" required>
+		<input type="email" name="email" placeholder="Tu correo" class="contact-inputs" required>
 		<textarea name="message" placeholder="Escribe un mensaje..." class="contact-inputs" required></textarea>
-		<button type="submit">Submit</button>
+		<button type="submit">Enviar</button> <button type="submit">Limpiar</button>
 	</form>
 </div>

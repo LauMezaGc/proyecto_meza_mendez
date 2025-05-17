@@ -14,7 +14,7 @@
 	          <ul class="dropdown-menu">
 	            <li><a class="dropdown-item" href="./inicio#sobrenos">Sobre Nosotros</a></li>
 	            <li><a class="dropdown-item" href="./inicio#quienessomos">Quienes Somos</a></li>
-	            <li><a class="dropdown-item" href="/inicio#quehacemos">Que Hacemos</a></li>
+	            <li><a class="dropdown-item" href="./inicio#quehacemos">Que Hacemos</a></li>
 	            <li><hr class="dropdown-divider"></li>
 	            <li><a class="dropdown-item" href="./contacto">Contacto</a></li>
 	          </ul>
@@ -45,8 +45,14 @@
 	        </li>
 
 	        <li class="nav-item">
-	          <a class="nav-link" href="./inicio/quehacemos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	          <a class="nav-link" href="./inicio#quehacemos" role="button">
 	            Juegos
+	          </a>
+	        </li>
+
+	        <li class="nav-item">
+	          <a class="nav-link" href="./login" role="button">
+	            Iniciar Sesion
 	          </a>
 	        </li>
 	      </ul>

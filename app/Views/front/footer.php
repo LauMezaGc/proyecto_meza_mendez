@@ -24,9 +24,9 @@
   		<div class="row">
     		<div class="col" style="text-align: justify;">
       			<h5>CarpiJuegos</h5>
-      				<p><a href="./inicio/sobrenos">Acerca de Nosotros</a><p>
+      				<p><a href="./inicio#sobrenos">Acerca de Nosotros</a><p>
       				<p><a href="./tienda">Tienda</a><p>
-      				<p><a href="./inicio/quehacemos">Juegos</a><p>
+      				<p><a href="./inicio#quehacemos">Juegos</a><p>
     		</div>
 
     		<div class="col" style="text-align: justify;">

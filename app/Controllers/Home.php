@@ -15,6 +15,8 @@ class Home extends BaseController
             case "comercializacion":
             case "contacto":
             case "terminos":
+            case "login":
+            case "registro":
                 echo view("front/".$nombre);
                 break;
             case "tienda":
