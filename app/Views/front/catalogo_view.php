@@ -7,18 +7,21 @@
 			<div class="row">
 				<div class="col-md-12">
 					<!-- todavia no hay productos -->
+					<?php
+					$producto = 3;	
+					?>
 					<?php if(!$producto) { ?>
 
 						<div class="container-fluid">
-							<div class="well">
-								<h2 class="text-center tit">No hay productos</h2>
+							<div class="text-center">
+								<h2>No hay productos</h2>
 							</div>
 						</div>
 						
 					<?php } else { ?>
 
-					<div class="container-fluid mt-2 mb-3">
-						<h2 class="text-center tit">Todos los productos</h2>
+					<div class="container-fluid mt-2 mb-3 text-center">
+						<h2>Todos los productos</h2>
 					</div>
 					
 					<?php } ?>
