@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-use codeIgniter\Model;
+use CodeIgniter\Model;
 
 class usuarios_model extends Model 
 {
