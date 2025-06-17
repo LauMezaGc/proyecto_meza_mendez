@@ -12,7 +12,7 @@
 					<div class="alert alert-danger"><?session()->getFlashdata('fail');?></div>
 				<?php endif?>
 				<?php if(!empty (session()->getFlashdata('success'))):?>
-					<div class="alert alert-danger"><?=session()->getFlashdata('success');?></div>
+					<div class="alert alert-success"><?=session()->getFlashdata('success');?></div>
 				<?php endif?>
 					<div class="card-body justify-content-center" media="(max-width:768px)">
 						<!-- Nombre -->

@@ -4,7 +4,16 @@
 			<div class="row d-flex justify-content-center">
 
 				<h1>Iniciar Sesión</h1>
-				<form method="post" action="<?php echo base_url('/enviarlogin') ?>">
+
+				<!-- Mensaje de error -->
+				<?php if(session()->getFlashdata('msg')):?>
+					<div class="alert alert-warning">
+						<?= session()->getFlashdata('msg')?>
+					</div>
+				<?php endif;?>
+
+				<!-- Formulario login -->
+				<form method="post" action="<?php echo base_url('/enviar-login') ?>">
 					<div class="card-body" media="(max-width:768px)">
 						<div class="mb-2">
 							<label for="exampleFormControlInput1" class="forml-label">Correo</label>
