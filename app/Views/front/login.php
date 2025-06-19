@@ -13,7 +13,7 @@
 				<?php endif;?>
 
 				<!-- Formulario login -->
-				<form method="post" action="<?php echo base_url('/enviar-login') ?>">
+				<form method="post" action="enviar-login">
 					<div class="card-body" media="(max-width:768px)">
 						<div class="mb-2">
 							<label for="exampleFormControlInput1" class="forml-label">Correo</label>

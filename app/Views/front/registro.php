@@ -6,7 +6,7 @@
 				<h1>Registro de usuario</h1>
 
 				<?php $validation = \Config\Services::validation(); ?>
-				<form method="post" action="<?php echo base_url('/enviar-form') ?>">
+				<form method="post" action="enviar-form">
 				<?=csrf_field();?>
 				<?php if(!empty (session()->getFlashdata('fail'))):?>
 					<div class="alert alert-danger"><?session()->getFlashdata('fail');?></div>
@@ -77,7 +77,7 @@
 
 							<!-- Boton -->
 							<input type="submit" value="Guardar" class="btn btn-primary">
-						<p>¿Ya tiene cuenta? <a href="./login" class="text-success">Inicie sesión aquí.</a></p>
+						<p>¿Ya tiene cuenta? <a href="login" class="text-success">Inicie sesión aquí.</a></p>
 					</div>
 				</form>
 			</div>

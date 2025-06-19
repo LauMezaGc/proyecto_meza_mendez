@@ -44,11 +44,26 @@
 
     		<div class="col">
     			<h4>
-    				<a class="bi bi-twitter-x" href="https://x.com/?lang=es" target="_blank"></a>
-      				<a class="bi bi-linkedin" href="https://www.linkedin.com/" target="_blank"></a>
-      				<a class="bi bi-instagram" href="https://www.instagram.com/" target="_blank"></a>
-      				<a class="bi bi-youtube" href="https://www.youtube.com/" target="_blank"></a>
-      				<a class="bi bi-facebook" href="https://www.facebook.com/" target="_blank"></a>
+    				<a href="https://www.linkedin.com/" target="_blank">
+      					<svg class="bi" width="32" height="32" fill="currentColor">
+							<use xlink:href="assets/icons/bootstrap-icons.svg#linkedin"/>
+						</svg>
+      				</a>
+      				<a href="https://www.instagram.com/" target="_blank">
+      					<svg class="bi" width="32" height="32" fill="currentColor">
+							<use xlink:href="assets/icons/bootstrap-icons.svg#instagram"/>
+						</svg>
+      				</a>
+      				<a href="https://www.youtube.com/" target="_blank">
+      					<svg class="bi" width="32" height="32" fill="currentColor">
+							<use xlink:href="assets/icons/bootstrap-icons.svg#youtube"/>
+						</svg>
+      				</a>
+      				<a href="https://www.facebook.com/" target="_blank">
+      					<svg class="bi" width="32" height="32" fill="currentColor">
+							<use xlink:href="assets/icons/bootstrap-icons.svg#facebook"/>
+						</svg>
+      				</a>
       			</h4>
       			<p>carpijuegos_dev@gmail.com</p>
       			<p>3795123456</p>
