@@ -47,7 +47,7 @@ class login_controller extends BaseController
 				$session->set($ses_data);
 
 				session()->setFlashData('msg', 'Bienvenido!');
-				return redirect()->to('panel');
+				return redirect()->to('/');
 			} else {
 				//no paso la validacion de la contraseña
 				$session->setFlashData('msg', 'Contraseña incorrecta');

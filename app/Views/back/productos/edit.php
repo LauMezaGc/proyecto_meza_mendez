@@ -2,7 +2,7 @@
 	<div class="card" style="width: 75%;">
 		<div class="card-header text-center">
 			<!-- Título -->
-			<h2>Alta de Productos</h2>
+			<h2>Editar Productos</h2>
 		</div>
 		<!-- Validación -->
 		<?php if (!empty(session()->getFlashdata('fail'))): ?>

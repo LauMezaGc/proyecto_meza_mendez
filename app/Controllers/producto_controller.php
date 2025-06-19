@@ -8,24 +8,24 @@ use App\Models\ventas_detalle_model;
 use App\Models\categorias_model;
 use CodeIgniter\Controller;
 
-class Productocontroller extends Controller
+class producto_controller extends Controller
 {
     public function __construct(){
         helper(['url','form']);
         $session=session();
     }
 
-    // mostrar los productos en lista
+    // mostrar los productos en lista 
     public function index(){
         $productoModel = new productos_model();
         //realiza la consulta para mostrar todos los productos
         $data['producto'] = $productoModel->getProductoAll(); //funcion en el modelo
 
         $data['titulo'] = "Crud_productos";
-        echo view('front/head_view', $data);
+        echo view('front/header', $data);
         echo view('front/navbar');
         echo view('back/productos/producto_nuevo_view', $data);
-        echo view('front/footer_view');
+        echo view('front/footer');
     }
 
     public function creaproducto(){
@@ -46,10 +46,9 @@ class Productocontroller extends Controller
         //construye las reglas de validación
         $input = $this->validate([
             'nombre_prod' => 'required|min_length[3]',
-            'categoria_id' => 'is_not_unique[categorias.id]',
+            'categoria' => 'is_not_unique[categorias.id]',
             'precio' => 'required|numeric',
-            'precio_vta' => 'required|numeric'
-            'stock' => 'required'
+            'formato' => 'required',
             'imagen' => 'uploaded[imagen]'
         ]);
 
@@ -63,7 +62,8 @@ class Productocontroller extends Controller
             $dato['titulo'] = 'Alta';
             echo view('front/header', $dato);
             echo view('front/navbar');
-            echo view('back/productos/alta_producto_view');
+            echo view('back/productos/alta_producto_view', $data);
+            echo view('front/footer');
         } else {
             $img = $this->request->getFile('imagen');
             //genera un nombre aleatorio para el archivo
@@ -72,15 +72,15 @@ class Productocontroller extends Controller
             $img->move(ROOTPATH.'assets/uploads', $nombre_aleatorio);
 
             $data = [
-                'nombre_prod' => $this->request->getFile('nombre_prod'),
+                'nombre_prod' => $this->request->getVar('nombre_prod'),
                 //se obtiene el nombre del archivo de imagen sin la ruta utilizando el método getName() del objeto $img
-                'imagen' => $img->getName()
+                'imagen' => $img->getName(),
                 //completar con los demás campos
-                'categoria_id' => $this->request->getVar('categoria_id'),
+                'categoria_id' => $this->request->getVar('categoria'),
                 'precio' => $this->request->getVar('precio'),
-                'precio_vta' => $this->request->getVar('precio_vta'),
-                'stock' => $this->request->getVar('stock'),
-                'stock_min' => $this->request->getVar('stock_min'),
+                'descripcion' => $this->request->getVar('descripcion'),
+                'formato' => $this->request->getVar('formato'),
+                'stock' => $this->request->getVar('stock')
                 // 'eliminado' => NO
             ];
 
@@ -121,7 +121,7 @@ class Productocontroller extends Controller
             $img->move(ROOTPATH.'assets/uploads', $nombre_aleatorio);
             $data = [
                 'nombre_prod' => $this->request->getFile('nombre_prod'),
-                'imagen' => $img->getName()
+                'imagen' => $img->getName(),
                 //completar con los demás campos
                 'categoria_id' => $this->request->getVar('categoria_id'),
                 'precio' => $this->request->getVar('precio'),
@@ -133,7 +133,7 @@ class Productocontroller extends Controller
         } else {
             $data = [
                 'nombre_prod' => $this->request->getFile('nombre_prod'),
-                'imagen' => $img->getName()
+                'imagen' => $img->getName(),
                 //completar con los demás campos
                 'categoria_id' => $this->request->getVar('categoria_id'),
                 'precio' => $this->request->getVar('precio'),

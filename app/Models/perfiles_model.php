@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-use codeIgniter\Model;
+use CodeIgniter\Model;
 
 class perfiles_model extends Model 
 {
