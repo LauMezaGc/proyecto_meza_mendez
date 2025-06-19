@@ -46,7 +46,7 @@ class usuario_controller extends Controller {
 			]);
 
 			session()->setFlashData('success', 'Usuario registrado con exito');
-			return $this->response->redirect(base_url('/registro'));
+			return $this->response->redirect('registro');
 		}
 	}
 }

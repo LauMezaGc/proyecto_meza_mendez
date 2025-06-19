@@ -15,7 +15,3 @@ $routes->get('/panel', 'panel_controller::index', ['filter' => 'Auth']);
 $routes->get('/logout', 'login_controller::logout', ['filter' => 'Auth']);
 
 $routes->get('/(:any)', 'Home::armarPagina/$1');
-
-
-
-
