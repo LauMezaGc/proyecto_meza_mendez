@@ -44,13 +44,13 @@
     </div>
   </section>
   <section id="resto" class="text-light text-bg-warning text-center p-5">
-    <h1>Visitá el resto de nuestra pagina:</h1>
+    <h1 class="fst-italic" style="padding-top: 20px;">Visitá el resto de nuestra pagina:</h1>
     <!-- datos -->
     <div class="fs-4 p-5">
-        <a href="./quienes"><button class="btn btn-dark">Quienes Somos</button></a>
-        <a href="./contacto"><button class="btn btn-dark">Contacto</button></a>
-        <a href="./tienda"><button class="btn btn-dark">Tienda</button></a>
-        <a href="./historia"><button class="btn btn-dark">Historia</button></a>
+        <a class="p-2" href="./quienes"><button class="btn btn-dark">Quienes Somos</button></a>
+        <a class="p-2" href="./contacto"><button class="btn btn-dark">Contactanos</button></a>
+        <a class="p-2" href="./tienda"><button class="btn btn-dark">Nuestra Tienda</button></a>
+        <a class="p-2" href="./historia"><button class="btn btn-dark">Historia de la compañía</button></a>
     </div>
   </section>
 
