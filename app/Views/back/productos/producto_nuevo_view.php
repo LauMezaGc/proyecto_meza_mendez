@@ -1,10 +1,22 @@
+	<div class=" container my-3 text-center"> 
+		<?php if (empty($producto)): ?> 
+			<h3>No hay productos cargados</h3> 
+ 		<?php endif; ?> 
+ 	</div> 
+
 	<div class="container my-3">
+		<?php if (!empty(session()->getFlashdata('fail'))): ?>
+			<div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
+		<?php endif; ?>
+		<?php if (!empty(session()->getFlashdata('success'))): ?>
+			<div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
+		<?php endif; ?>
+		<div class="text-end" style="margin-bottom: 5px;">
+			<a href="<?= base_url('/produ-form'); ?>" class="btn btn-success">Agregar</a>
+			<a href="<?= base_url('/eliminados'); ?>" class="btn btn-danger">Eliminados</a>
+		</div>
 		<table class="table table-hover table-dark table-responsive-md">
 			<thead class="table-dark">
-				<div class="text-end" style="margin-bottom: 5px;">
-					<a href="<?= base_url('/produ-form'); ?>" class="btn btn-success">Agregar</a>
-					<a href="<?= base_url('/eliminados'); ?>" class="btn btn-danger">Eliminados</a>
-				</div>
 				<tr>
 					<th>ID</th>
 					<th>Producto</th>

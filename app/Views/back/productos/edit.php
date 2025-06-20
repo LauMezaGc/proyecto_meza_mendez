@@ -2,9 +2,9 @@
 	<div class="card" style="width: 75%;">
 		<div class="card-header text-center">
 			<!-- Título -->
-			<h2>Editar Productos</h2>
+			<h2>Editar Producto</h2>
 		</div>
-		<!-- Validación -->
+		
 		<?php if (!empty(session()->getFlashdata('fail'))): ?>
 			<div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
 		<?php endif; ?>
@@ -14,12 +14,12 @@
 
 		<?php $validation = \Config\Services::validation(); ?>
 		<!-- Inicio del formulario -->
-		<form action="<?= base_url('/enviar-prod'); ?>" method="post" enctype="multipart/form-data">
+		<form action="<?= base_url('/modifica/' . $old['id']); ?>" method="post" enctype="multipart/form-data">
 			<div class="card-body" media="(max-width:568px)">
 
 				<div class="mb-2">
 					<label for="nombre_prod" class="form-label">Producto</label>
-					<input class="form-control" type="text" name="nombre_prod" id="nombre_prod" value="<?= set_value('nombre_prod'); ?>" placeholder="Nombre del producto" autofocus>
+					<input class="form-control" type="text" name="nombre_prod" id="nombre_prod" value="<?= set_value('nombre_prod'); ?>" placeholder="<?php echo $old['nombre_prod'] ?>" autofocus>
 					<!-- Error -->
 					<?php if ($validation->getError('nombre_prod')): ?>
 						<div class="alert alert-danger mt-2">
@@ -48,7 +48,7 @@
 
 				<div class="mb-2">
 					<label for="precio" class="form-label">Precio de costo</label>
-					<input class="form-control" type="text" name="precio" id="precio" value="<?= set_value('precio') ?>" placeholder="Precio" autofocus>
+					<input class="form-control" type="text" name="precio" id="precio" value="<?= set_value('precio') ?>" placeholder="<?php echo $old['precio'] ?>" autofocus>
 					<!-- Error -->
 					<?php if ($validation->getError('precio')): ?>
 						<div class="alert alert-danger mt-2">
@@ -59,7 +59,7 @@
 
 				<div class="mb-2">
 					<label for="descripcion" class="form-label">Descripción</label>
-					<input class="form-control" type="text" name="descripcion" id="descripcion" value="<?= set_value('descripcion') ?>" placeholder="Descripción" autofocus>
+					<input class="form-control" type="text" name="descripcion" id="descripcion" value="<?= set_value('descripcion') ?>" placeholder="<?php echo $old['descripcion'] ?>" autofocus>
 					<!-- Error -->
 					<?php if ($validation->getError('descripcion')): ?>
 						<div class="alert alert-danger mt-2">
@@ -75,17 +75,27 @@
 							<option value="1">Físico</option>
 							<option value="2">Digital</option>
 					</select>
+					<!-- Error -->
+					<?php if ($validation->getError('formato')): ?>
+						<div class="alert alert-danger mt-2">
+							<?= $validation->getError('formato'); ?>
+						</div>
+					<?php endif; ?>
 				</div>
 
 				<div class="mb-2">
 					<label for="stock" class="form-label">Stock</label>
-					<input class="form-control" type="text" name="stock" id="stock" value="<?= set_value('stock') ?>" placeholder="Stock" autofocus>
+					<input class="form-control" type="text" name="stock" id="stock" value="<?= set_value('stock') ?>" placeholder="<?php echo $old['stock'] ?>" autofocus>
 					<!-- Error -->
 					<?php if ($validation->getError('stock')): ?>
 						<div class="alert alert-danger mt-2">
 							<?= $validation->getError('stock'); ?>
 						</div>
 					<?php endif; ?>
+				</div>
+
+				<div class="mb-2">
+					<label for="imagen" class="form-label">Imagen actual: <img src="<?= base_url('assets/uploads/'. $old['imagen']) ?>" width="100px" height="100px" style="margin-left: 5px;"></label>
 				</div>
 
 				<div class="mb-2">
@@ -101,7 +111,7 @@
 
 				<!-- Botones -->
 				<div class="form-group">
-					<button type="submit" id="send_form" class="btn btn-primary">Enviar</button>
+					<button type="submit" id="send_form" class="btn btn-primary">Guardar</button>
 					<button type="reset" class="btn btn-danger">Limpiar</button>
 					<a href="<?= base_url('/crear'); ?>" class="btn btn-secondary">Volver</a>
 				</div>

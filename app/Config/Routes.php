@@ -22,6 +22,6 @@ $routes->get('/crear', 'producto_controller::index', ['filter' => 'Auth']);
 $routes->get('/produ-form', 'producto_controller::creaproducto', ['filter' => 'Auth']);
 $routes->post('/enviar-prod', 'producto_controller::store', ['filter' => 'Auth']);
 $routes->get('/editar/(:num)', 'producto_controller::singleProducto/$1', ['filter' => 'Auth']);
-
+$routes->post('/modifica/(:num)', 'producto_controller::modifica/$1', ['filter' => 'Auth']);
 /* Ruta de armado de página Home */
 $routes->get('/(:any)', 'Home::armarPagina/$1');
