@@ -1,4 +1,4 @@
-<h1 style="text-align: center; padding-top: 20px; font-family: sans-serif;">Contacto</h1>
+<h1 class="text-" style="text-align: center; padding-top: 20px;">Contacto</h1>
 <hr class="hr1" style="padding-bottom: 2px;">
 
 <div id="contacto" class="row contact-container justify-content-center">
@@ -15,9 +15,10 @@
 			<h2>Contactanos</h2>
 			<hr>
 		</div>
-		<input type="text" name="name" placeholder="Tu nombre" class="contact-inputs" required>
-		<input type="email" name="email" placeholder="Tu correo" class="contact-inputs" required>
+		<input type="text" name="name" placeholder="Asunto" class="contact-inputs" required>
 		<textarea name="message" placeholder="Escribe un mensaje..." class="contact-inputs" required></textarea>
-		<button type="submit">Enviar</button> <button type="submit">Limpiar</button>
+		<div>
+			<button type="submit" class="btn btn-primary">Enviar</button> <button type="reset" class="btn btn-danger">Limpiar</button>	
+		</div>
 	</form>
 </div>
