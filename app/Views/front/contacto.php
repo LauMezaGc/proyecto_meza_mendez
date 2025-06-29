@@ -1,7 +1,25 @@
-<h1 style="text-align: center; padding-top: 20px; font-family: sans-serif;">Contacto</h1>
+<?php
+	$session = session();
+	$nombre = $session->get('nombre');
+	$perfil = $session->get('perfil_id');
+?>
+
+<h1 class="text-" style="text-align: center; padding-top: 20px;">Contacto</h1>
 <hr class="hr1" style="padding-bottom: 2px;">
 
 <div id="contacto" class="row contact-container justify-content-center">
+
+	<?php if($perfil == 1): ?>
+	<!-- LISTA DE MENSAJES PARA ADMIN -->	
+		
+
+
+
+
+
+
+
+	<?php else:?>
 	<div class="col contact-left">
 		<h3>Informacion de Contacto</h3>
 		<p><strong>Titulares de la Empresa:</strong> Federico Pelusa y Martin Soboreo</p>
@@ -15,9 +33,20 @@
 			<h2>Contactanos</h2>
 			<hr>
 		</div>
-		<input type="text" name="name" placeholder="Tu nombre" class="contact-inputs" required>
-		<input type="email" name="email" placeholder="Tu correo" class="contact-inputs" required>
+		<input type="text" name="name" placeholder="Asunto" class="contact-inputs" required>
 		<textarea name="message" placeholder="Escribe un mensaje..." class="contact-inputs" required></textarea>
-		<button type="submit">Enviar</button> <button type="submit">Limpiar</button>
+		<div>
+			<button type="submit" class="btn btn-primary">Enviar</button> <button type="reset" class="btn btn-danger">Limpiar</button>
+		</div>
+		<?php if($perfil == 2): ?>
+			<!-- ALERTA USUARIO LOG -->
+			<div>
+				<p>Recordatorio: todos</p>
+			</div>
+        <?php else:?>
+        	<!-- ALERTA SIN SESIÓN -->
+        <?php endif;?>
 	</form>
+	<?php endif;?>
 </div>
+				    
