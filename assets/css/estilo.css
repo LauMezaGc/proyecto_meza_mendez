@@ -97,18 +97,3 @@
 .contact-inputs::placeholder {
 	color: #a9a9a9;
 }
-
-.contact-right button {
-	align-items: center;
-	padding-bottom: 15px;
-	padding: 15px 30px;
-	font-size: 16px;
-	color: #fff;
-	border: none;
-	gap:10px;
-	background: linear-gradient(279deg,#0025ff,purple);
-	cursor: pointer;
-	border-radius: 5px;
-}
-
-
