@@ -40,11 +40,14 @@
 		</div>
 		<?php if($perfil == 2): ?>
 			<!-- ALERTA USUARIO LOG -->
-			<div>
-				<p>Recordatorio: todos</p>
+			<div class="rounded-4 bg-body-secondary text-dark-emphasis p-3o">
+				<p>Recordatorio: todas las consultas que usted haga serán asociadas a su perfil. Para revisar sus consultas previas, <a href="usuario-consultas">haga click aquí.</a></p>
 			</div>
         <?php else:?>
         	<!-- ALERTA SIN SESIÓN -->
+        	<div class="rounded-4 bg-body-secondary text-dark-emphasis p-3">
+				<p>Recordatorio: No podra ver la respuesta a su consulta si no inicia sesión.</a></p>
+			</div>
         <?php endif;?>
 	</form>
 	<?php endif;?>

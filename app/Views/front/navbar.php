@@ -69,7 +69,7 @@
 		        			<ul class="dropdown-menu">
 							    <li>
 							    	<div class="btn btn-info active btnUser btn-sm dropdown-item">
-					    				ADMINISTRADOR: <?php echo session('nombre'); ?>
+					    				ADMINISTRADOR: <?php echo $nombre; ?>
 					    			</div>
 							    </li>
 							    <li><hr class="dropdown-divider"></li>
@@ -92,7 +92,7 @@
 		        			<ul class="dropdown-menu">
 							    <li>
 							    	<div class="btn btn-success active btnUser btn-sm dropdown-item">
-					    				USUARIO: <?php echo session('nombre'); ?>
+					    				USUARIO: <?php echo $nombre; ?>
 					    			</div>
 							    </li>
 							    <li><hr class="dropdown-divider"></li>
