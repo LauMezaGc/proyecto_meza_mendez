@@ -31,7 +31,7 @@
 				<div class="mb2">
 					<label for="categoria" class="form-label">Categoría</label>
 					<select class="form-control" name="categoria" id="categoria">
-						<option value="0">Seleccionar Categoría</option>
+						<option value="0" hidden >Seleccionar Categoría</option>
 						<?php foreach ($categorias as $categoria): ?>
 							<option value="<?= $categoria['id']; ?>" <?= set_select('categoria', $categoria['id']); ?>>
 							<?= $categoria['descripcion']; ?>
@@ -71,7 +71,7 @@
 				<div class="mb-2">
 					<label for="formato" class="form-label">Formato</label>
 					<select class="form-control" name="formato" id="formato">
-						<option value="0">Seleccionar Formato</option>
+						<option value="0" hidden >Seleccionar Formato</option>
 							<option value="1">Físico</option>
 							<option value="2">Digital</option>
 					</select>
