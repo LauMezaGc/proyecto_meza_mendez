@@ -27,6 +27,37 @@ $routes->get('/borrar/(:num)', 'producto_controller::borrarproducto/$1', ['filte
 $routes->get('/eliminados', 'producto_controller::eliminados', ['filter' => 'Auth']);
 $routes->get('/activar_prod/(:num)', 'producto_controller::activarproducto/$1', ['filter' => 'Auth']);
 
+/* Rutas de Usuarios */
+$routes->get('/usuarios', 'usuario_crud_controller::index', ['filter' => 'Auth']);
+$routes->get('/user-form', 'usuario_crud_controller::creausuario', ['filter' => 'Auth']);
+$routes->post('/crear-user', 'usuario_crud_controller::store', ['filter' => 'Auth']);
+$routes->get('/editar-user/(:num)', 'usuario_crud_controller::singleUser/$1', ['filter' => 'Auth']);
+$routes->post('/update/(:num)', 'usuario_crud_controller::update/$1', ['filter' => 'Auth']);
+$routes->get('/borrar-user/(:num)', 'usuario_crud_controller::deletelogico/$1', ['filter' => 'Auth']);
+$routes->get('activar-user/(:num)', 'usuario_crud_controller::activar/$1', ['filter' => 'Auth']);
+
+/* Rutas de ventas */
+$routes->get('/vista_compras/(:num)', 'ventas_controller::ver_factura/$1', ['filter' => 'Auth']); 
+
+/* Rutas para el carrito */
+// muestra todos los productos del catálogo
+$routes->get('/todos_p', 'carrito_controller::catalogo', ['filter' => 'Auth']);
+// carga la vista carrito parte_parte_view
+$routes->get('/muestro', 'carrito_controller::muestra', ['filter' => 'Auth']);
+// actualiza los datos del carrito
+$routes->get('/carrito_actualiza', 'carrito_controller::actualiza_carrito', ['filter' => 'Auth']);
+// agrega los items seleccionados
+$routes->post('/carrito_add', 'carrito_controller::add', ['filter' => 'Auth']);
+// elimina un item del carrito
+$routes->get('/carrito_elimina/(:any)', 'carrito_controller::remove/$1', ['filter' => 'Auth']);
+// eliminar todo el carrito
+$routes->get('/borrar', 'carrito_controller::borrar_carrito', ['filter' => 'Auth']);
+// registrar la venta en las tablas
+$routes->get('/carrito_comprar', 'ventas_controller::registrar_venta', ['filter' => 'Auth']);
+// botones de sumar y restar en la vista del carrito
+$routes->get('/carrito_suma/(:any)', 'carrito_controller::suma/$1');
+$routes->get('/carrito_resta/(:any)', 'carrito_controller::resta/$1');
+
 /* Contacto */
 $routes->get('/contacto','contacto_controller::pagContacto');
 $routes->get('/ver-consultas','contacto_controller::pagListado');
