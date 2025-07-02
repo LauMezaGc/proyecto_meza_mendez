@@ -9,14 +9,44 @@ class contacto_controller extends Controller {
 		helper(['form','url']);
 	}
 
-	public function formValidation() {
+	public function pagContacto() {
+		$data = ['titulo' => 'Contacto'];
+        echo view("front/header", $data);
+        echo view("front/navbar");
+
+        if (session()->get('perfil_id') == 1) {
+        	$contacto = new contacto_model();
+        	$usuarios = new usuarios_model();
+        	$dato['consultas'] = $contacto->getMensajes();
+        	$dato['usuarios'] = $usuarios->findAll();
+        	echo view("front/contacto", $dato);
+        } else {
+        	echo view("front/contacto", $dato);
+        }
+		
+        echo view("front/footer.php");
+	}
+
+	public function pagListado($id = null) {
+		$data = ['titulo' => 'Contacto'];
+        echo view("front/header", $data);
+        echo view("front/navbar");
+
+        $contacto = new contacto_model();
+        $dato['consultas'] = $contacto->getMensajesUser($id);
+
+		echo view("front/ver-consultas", $dato);
+        echo view("front/footer.php");
+	}
+
+	public function enviar_contacto() {
 		$input = $this->validate([
 			'asunto' => 'required|min_length[3]',
 			'mensaje' => 'required|min_length[15]|max_length[2000]',
 			],
 		);
 
-		$formModel = new usuarios_model();
+		$formModel = new contacto_model();
 
 		if(!$input) {
 			session()->setFlashData('fail', '¡Formulario Incompleto!');
@@ -25,40 +55,40 @@ class contacto_controller extends Controller {
 			$formModel->save([
 				'asunto' => $this->request->getVar('asunto'),
 				'mensaje' => $this->request->getVar('mensaje'),
-				'usuario_id' => $session->get('id'),
+				'usuario_id' => session()->get('id'),
 			]);
 
 			session()->setFlashData('success', 'Enviado con éxito.');
 			return $this->response->redirect('contacto');
 		}
 
-
 	}
 
-	public function formValidationResp() {
+	public function responder_consulta($id = null) {
 		$input = $this->validate([
-			'respuesta' => 'required|min_length[3]|max_length[2000]',
+			'respuesta' => 'required|min_length[3]|max_length[4000]',
 			],
 		);
 
-		$formModel = new usuarios_model();
-
 		if(!$input) {
-			session()->setFlashData('fail', '¡Formulario Incompleto!');
-			return $this->response->redirect('contacto');
+			session()->setFlashData('fail', '¡La respuesta no cumple los requisitos!');
 		} else {
-			$formModel->save([
-				'asunto' => $this->request->getVar('asunto'),
-				'mensaje' => $this->request->getVar('mensaje'),
-				'usuario_id' => $session->get('id'),
-			]);
-
+			$consultasM = new contacto_model();
+			$consultasM->getMensaje($id);
+			$consultasM->update($id, ['respuesta' => $this->request->getVar('respuesta') ])
 			session()->setFlashData('success', 'Enviado con éxito.');
-			return $this->response->redirect('registro');
 		}
 
-		
+		return $this->response->redirect('contacto');
 	}
+
+	public function eliminar_consulta($id = null) {
+		$consultasM = new contacto_model();
+		$consultasM->getMensaje($id);
+		$consultasM->delete($id);
+		session()->setFlashData('success', 'Consulta eliminada con éxito.');
+	}
+
 }
 
 ?>

@@ -9,34 +9,33 @@ class contacto_model extends Model
 	protected $primaryKey = 'id';
 	protected $allowedFields = ['usuario_id', 'asunto', 'mensaje', 'respuesta'];
 
-	public function getBuilderProductos() {
+	public function getMensajes() {
 		//método de la clase Database que permite conectarse a la base de datos
 		$db = \Config\Database::connect();
 		//$builder es una instancia de la clase QueryBuilder de CodeIgniter
 		$builder = $db->table('contacto');
 		//hace una consulta a la base de datos
 		$builder->select('*');
-		//hace el join de la tabla categoría
-		$builder->join('categorias', 'categorias.id = productos.categoria_id');
+		//hace el join de la tabla usuarios
+		$builder->join('usuarios', 'usuarios.id = contacto.usuario_id');
 		//retorna el builder
 		return $builder;
 	}
 
-	public function getProducto($id = null) {
-		$builder = $this->getBuilderProductos();
-		$builder->where('productos.id',$id);
+	public function getMensaje($id = null) {
+		$builder = $this->getMensajes();
+		$builder->where('contacto.id',$id);
 		$query = $builder->get();
 		return $query->getRowArray();
 	}
 
-	public function updateStock($id = null, $stock_actual = null) {
-		$builder = $this->getBuilderProductos();
-		$builder->where('productos.id', $id);
-		$builder->set('productos.stock', $stock_actual);
-		$builder->update();
+	public function getMensajesUser($id = null) {
+		$builder = $this->getMensajes();
+		$builder->where('contacto.usuario_id',$id);
+		return $builder;
 	}
 
-	public function getProductoAll() {
+	public function getMensajeAll() {
 		return $this->findAll();
 	}
 }

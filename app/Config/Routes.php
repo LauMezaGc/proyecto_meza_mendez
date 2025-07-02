@@ -27,5 +27,13 @@ $routes->get('/borrar/(:num)', 'producto_controller::borrarproducto/$1', ['filte
 $routes->get('/eliminados', 'producto_controller::eliminados', ['filter' => 'Auth']);
 $routes->get('/activar_prod/(:num)', 'producto_controller::activarproducto/$1', ['filter' => 'Auth']);
 
+/* Contacto */
+$routes->get('/contacto','contacto_controller::pagContacto');
+$routes->get('/ver-consultas','contacto_controller::pagListado');
+$routes->post('/enviar-contacto','contacto_controller::enviar_contacto');
+$routes->post('/enviar-respuesta/(:num)','contacto_controller::responder_consulta/$1'), ['filter' => 'Auth'];
+$routes->post('/eliminar-consulta/(:num)','contacto_controller::eliminar_consulta/$1'), ['filter' => 'Auth'];
+
+
 /* Ruta de armado de página Home */
 $routes->get('/(:any)', 'Home::armarPagina/$1');
