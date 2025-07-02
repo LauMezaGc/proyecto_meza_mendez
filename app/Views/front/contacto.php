@@ -6,7 +6,7 @@
 <h1 class="text-" style="text-align: center; padding-top: 20px;">Contacto</h1>
 <hr class="hr1" style="padding-bottom: 2px;">
 
-<div id="contacto" class="row contact-container justify-content-center">
+
 
 	<?php if($perfil == 1): ?>
 	<!-- LISTA DE MENSAJES PARA ADMIN -->
@@ -25,8 +25,8 @@
 		<?php endif?>
 
 
-		<?php if(!empty($consultas)): 
-		<div class="container">
+		<?php if(empty($consultas)): ?>
+		<div class="container-fluid">
 			<div class="alert alert-dark text-center" role="alert">
 				<h4 class="alert-heading">No hay consultas por antender</h4>
 				<p>No hay consultas disponibles en este momento.</p>
@@ -35,21 +35,24 @@
 			</div>
 		</div>
 		<?php else:?>
-		<div class="container-fluid">
+		<div class="container-fluid m-2">
 			<h1 class="titulos-dark rounded-3 p-2 text-center">Consultas</h1>
 			<div>
-				<?php foreach ($consultas as $consulta) { ?>
-					<form action="enviar-respuesta/<?php echo $consulta['id']?>" class="d-flex flex-column mb-3 rounded-3 m-2" id="<?php echo $consulta['id']?>">
-					  <div class="p-2">
+				<?php foreach ($consultas as $consulta): ?>
+					<form action="enviar-respuesta/<?php echo $consulta['id']?>" class="d-flex flex-column mb-3 rounded-3 m-2 bg-body-secondary" id="<?php echo $consulta['id']?>" method="post">
+					  <div class="p-2 bg-body-primary">
 						<div class="hstack gap-3">
 						  <div class="p-2">
 						  	<svg class="bi nav-item dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" width="32" height="32" fill="currentColor">
-								<use xlink:href="assets/icons/bootstrap-icons.svg#person-<?php if($perfil == 1):?>fill<?php else:?>exclamation"/>
+								<use xlink:href="assets/icons/bootstrap-icons.svg#person-<?php if($consulta['usuario_id'] == 20):?>exclamation<?php else:?>fill<?php endif;?>"/>
 							</svg>
 						  </div>
 						  <div class="p-2">
-						  	<h4><?php echo $consulta['usuario_id.nombre'] . ' ' . $consulta['usuario_id.apellido']?></h4>
-						  	<p>@<?php echo $consulta['usuario_id.usuario']?></p>
+						  	<?php 	foreach ($usuarios as $user):
+						  		if ($user['id'] == $consulta['usuario_id']): ?>
+						  	<h4><?php echo $user['nombre'] . ' ' . $user['apellido']?></h4>
+						  	<p>@<?php echo $user['usuario']?></p>
+						  	<?php break; endif; endforeach;?> 
 						  </div>
 						  <div class="vr ms-auto"></div>
 						  <div class="p-2"><p>#<?php echo $consulta['id']?></p></div>
@@ -66,7 +69,7 @@
 						</div>
 					  </div>
 					</form>
-				<?php } ?>
+				<?php endforeach; ?>
 
 			</div>
 		</div>
@@ -78,6 +81,7 @@
 
 
 	<?php else:?>
+<div id="contacto" class="row contact-container justify-content-center">
 	<div class="col contact-left">
 		<h3>Informacion de Contacto</h3>
 		<p><strong>Titulares de la Empresa:</strong> Federico Pelusa y Martin Soboreo</p>
@@ -86,7 +90,20 @@
 		<p><strong>Telefono:</strong> 3795123456</p>
 		<p><strong>Mail de Contacto:</strong> carpijuegos_dev@gmail.com</p>
 	</div>
-	<form action="enviar-contacto" class="col contact-right">
+	<form action="enviar-contacto" class="col contact-right" method="post">
+		<!-- Mensaje de error -->
+		<?php if(session()->getFlashdata('msg')):?>
+			<div class="alert alert-warning">
+				<?= session()->getFlashdata('msg')?>
+			</div>
+		<?php endif;?>
+		<?php if(!empty (session()->getFlashdata('fail'))):?>
+			<div class="alert alert-danger"><?session()->getFlashdata('fail');?></div>
+		<?php endif?>
+		<?php if(!empty (session()->getFlashdata('success'))):?>
+			<div class="alert alert-success"><?=session()->getFlashdata('success');?></div>
+		<?php endif?>
+
 		<div class="contact-right-title">
 			<h2>Contactanos</h2>
 			<hr>
@@ -108,6 +125,7 @@
 			</div>
         <?php endif;?>
 	</form>
+	</div>
 	<?php endif;?>
-</div>
+
 				    

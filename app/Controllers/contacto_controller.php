@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 Use App\Models\usuarios_model;
+Use App\Models\contacto_model;
 use CodeIgniter\Controller;
 
 class contacto_controller extends Controller {
@@ -17,11 +18,11 @@ class contacto_controller extends Controller {
         if (session()->get('perfil_id') == 1) {
         	$contacto = new contacto_model();
         	$usuarios = new usuarios_model();
-        	$dato['consultas'] = $contacto->getMensajes();
+        	$dato['consultas'] = $contacto->getMensajeAll();
         	$dato['usuarios'] = $usuarios->findAll();
         	echo view("front/contacto", $dato);
         } else {
-        	echo view("front/contacto", $dato);
+        	echo view("front/contacto");
         }
 		
         echo view("front/footer.php");
@@ -50,18 +51,23 @@ class contacto_controller extends Controller {
 
 		if(!$input) {
 			session()->setFlashData('fail', '¡Formulario Incompleto!');
-			return $this->response->redirect('contacto');
 		} else {
+
+			if (!empty(session()->get('id'))) {
+				$id = session()->get('id');
+			} else {
+				$id = 20;
+			}
+
 			$formModel->save([
 				'asunto' => $this->request->getVar('asunto'),
 				'mensaje' => $this->request->getVar('mensaje'),
-				'usuario_id' => session()->get('id'),
+				'usuario_id' => $id,
 			]);
 
 			session()->setFlashData('success', 'Enviado con éxito.');
-			return $this->response->redirect('contacto');
 		}
-
+		return redirect()->to('contacto');
 	}
 
 	public function responder_consulta($id = null) {
@@ -75,11 +81,11 @@ class contacto_controller extends Controller {
 		} else {
 			$consultasM = new contacto_model();
 			$consultasM->getMensaje($id);
-			$consultasM->update($id, ['respuesta' => $this->request->getVar('respuesta') ])
+			$consultasM->update($id, ['respuesta' => $this->request->getVar('respuesta') ]);
 			session()->setFlashData('success', 'Enviado con éxito.');
 		}
 
-		return $this->response->redirect('contacto');
+		return redirect()->to('contacto');
 	}
 
 	public function eliminar_consulta($id = null) {
@@ -87,6 +93,7 @@ class contacto_controller extends Controller {
 		$consultasM->getMensaje($id);
 		$consultasM->delete($id);
 		session()->setFlashData('success', 'Consulta eliminada con éxito.');
+		return redirect()->to('contacto');
 	}
 
 }

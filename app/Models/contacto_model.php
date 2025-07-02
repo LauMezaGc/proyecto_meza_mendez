@@ -32,7 +32,7 @@ class contacto_model extends Model
 	public function getMensajesUser($id = null) {
 		$builder = $this->getMensajes();
 		$builder->where('contacto.usuario_id',$id);
-		return $builder;
+		return $builder->get()->getRowArray();
 	}
 
 	public function getMensajeAll() {

@@ -12,7 +12,7 @@
 <?php endif?>
 
 
-<?php if(!empty($consultas)): ?>
+<?php if(empty($consultas)): ?>
 <div class="container">
 	<div class="alert alert-dark text-center" role="alert">
 		<h4 class="alert-heading">No hay consultas para listar</h4>

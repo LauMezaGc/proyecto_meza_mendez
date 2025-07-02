@@ -76,6 +76,8 @@
 							    <li><a class="dropdown-item" href="usuarios">CRUD Usuarios</a></li>
 							    <li><a class="dropdown-item" href="crear">CRUD Productos</a></li>
 							    <li><hr class="dropdown-divider"></li>
+							    <li><a class="dropdown-item" href="contacto">Consultas</a></li>
+							    <li><hr class="dropdown-divider"></li>
 							    <li>
 							    	<a class=" dropdown-item nav-link" href="./logout" role="button">
 										Cerrar Sesión
@@ -95,6 +97,8 @@
 					    				USUARIO: <?php echo $nombre; ?>
 					    			</div>
 							    </li>
+							    <li><hr class="dropdown-divider"></li>
+							    <li><a class="dropdown-item" href="ver-consultas">Consultas</a></li>
 							    <li><hr class="dropdown-divider"></li>
 							    <li>
 							    	<a class=" dropdown-item nav-link" href="./logout" role="button">

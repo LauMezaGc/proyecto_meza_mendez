@@ -31,8 +31,8 @@ $routes->get('/activar_prod/(:num)', 'producto_controller::activarproducto/$1', 
 $routes->get('/contacto','contacto_controller::pagContacto');
 $routes->get('/ver-consultas','contacto_controller::pagListado');
 $routes->post('/enviar-contacto','contacto_controller::enviar_contacto');
-$routes->post('/enviar-respuesta/(:num)','contacto_controller::responder_consulta/$1'), ['filter' => 'Auth'];
-$routes->post('/eliminar-consulta/(:num)','contacto_controller::eliminar_consulta/$1'), ['filter' => 'Auth'];
+$routes->post('/enviar-respuesta/(:num)','contacto_controller::responder_consulta/$1', ['filter' => 'Auth']);
+$routes->post('/eliminar-consulta/(:num)','contacto_controller::eliminar_consulta/$1', ['filter' => 'Auth']);
 
 
 /* Ruta de armado de página Home */
