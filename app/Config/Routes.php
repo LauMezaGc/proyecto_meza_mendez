@@ -38,6 +38,7 @@ $routes->get('activar-user/(:num)', 'usuario_crud_controller::activar/$1', ['fil
 
 /* Rutas de ventas */
 $routes->get('/vista_compras/(:num)', 'ventas_controller::ver_factura/$1', ['filter' => 'Auth']); 
+$routes->get('ver_factura_usuario/(:num)', 'ventas_controller::ver_facturas_usuario/$1', ['filter' => 'Auth']);
 
 /* Rutas para el carrito */
 // muestra todos los productos del catálogo

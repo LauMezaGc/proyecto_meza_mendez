@@ -16,7 +16,7 @@ class ventas_controller extends Controller {
 
 		$productoModel = new productos_model();
 		$ventasModel = new ventas_cabecera_model();
-		$detallesModel = new ventas_detalle_model();
+		$detalleModel = new ventas_detalle_model();
 
 		$productos_validos = [];
 		$productos_sin_stock = [];
@@ -26,7 +26,7 @@ class ventas_controller extends Controller {
 		foreach ($carrito_contents as $item) {
 			$producto = $productoModel->getProducto($item['id']);
 
-			if ($producto && $producto['stock'] >= $item['qty']) {
+			if ($producto && (($producto['stock'] >= $item['qty']) || $producto['formato'] == 2)) {
 				$productos_validos[] = $item;
 				$total += $item['subtotal'];
 			} else {
@@ -64,7 +64,7 @@ class ventas_controller extends Controller {
 				'cantidad' => $item['qty'],
 				'precio' => $item['subtotal']
 			];
-			$detalleModel->$insert($detalle);
+			$detalleModel->insert($detalle);
 
 			$producto = $productoModel->getProducto($item['id']);
 			$productoModel->updateStock($item['id'], $producto['stock'] - $item['qty']);
@@ -86,6 +86,19 @@ class ventas_controller extends Controller {
 		echo view('front/header', $dato);
 		echo view('front/navbar');
 		echo view('back/compras/vista_compras', $data);
+		echo view('front/footer');
+	}
+
+	// función del cliente para ver el detalle de sus facturas de compras
+	public function ver_facturas_usuario($id_usuario) {
+		$ventas = new ventas_cabecera_model();
+
+		$data['ventas'] = $ventas->getVentas($id_usuario);
+		$dato['titulo'] = "Todas mis compras";
+
+		echo view('front/header', $dato);
+		echo view('front/navbar');
+		echo view('back/compras/ver_factura_usuario', $data);
 		echo view('front/footer');
 	}
 }

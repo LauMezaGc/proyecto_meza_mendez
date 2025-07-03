@@ -1,5 +1,6 @@
 <?php
 	$session = session();
+	$id = $session->get('id');
 	$nombre = $session->get('nombre');
 	$perfil = $session->get('perfil_id');
 ?>
@@ -97,6 +98,10 @@
 					    				USUARIO: <?php echo $nombre; ?>
 					    			</div>
 							    </li>
+							    <li><hr class="dropdown-divider"></li>
+							    <li><a class="dropdown-item" href="todos_p">Catálogo</a></li>
+							    <li><a class="dropdown-item" href="muestro">Carrito</a></li>
+							    <li><a class="dropdown-item" href="<?php echo base_url('ver_factura_usuario/' . $id)  ?>">Mis Compras</a></li>
 							    <li><hr class="dropdown-divider"></li>
 							    <li><a class="dropdown-item" href="ver-consultas">Consultas</a></li>
 							    <li><hr class="dropdown-divider"></li>

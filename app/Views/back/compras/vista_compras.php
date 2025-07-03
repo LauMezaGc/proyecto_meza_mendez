@@ -7,7 +7,7 @@
 				<h4 class="alert-heading">No posee compras registradas</h4>
 				<p>Para realizar una compra visite nuestro catalogo.</p>
 				<hr>
-				<a class="btn btn-warning my-2 w-10" href="<?php echo base_url('catalogo') ?>">Catálogo</a>
+				<a class="btn btn-warning my-2 w-10" href="<?php echo base_url('todos_p') ?>">Catálogo</a>
 			</div>
 		</div>
 	<?php }?>
@@ -47,8 +47,8 @@
                         	<td><?= $row['nombre_prod'] ?></td>
                         	<td><img width="100" height="65" src="<?= base_url('assets/uploads/' . $imagen) ?>"></td>
                         	<td><?= number_format($row['cantidad']) ?></td>
-                        	<td>$<?= number_format($row['precio_vta'], 2) ?></td>
-                        	<?php $subtotal = ($row['precio_vta'] * $row['cantidad']); ?>
+                        	<td>$<?= number_format($row['precio'], 2) ?></td>
+                        	<?php $subtotal = ($row['precio'] * $row['cantidad']); ?>
                         	<td>$<?= number_format($subtotal, 2) ?></td>
                     	</tr>
                     	<?php
