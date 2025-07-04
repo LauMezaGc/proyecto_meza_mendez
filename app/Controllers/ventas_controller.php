@@ -26,7 +26,7 @@ class ventas_controller extends Controller {
 		foreach ($carrito_contents as $item) {
 			$producto = $productoModel->getProducto($item['id']);
 
-			if ($producto && (($producto['stock'] >= $item['qty']) || $producto['formato'] == 2)) {
+			if ( $producto && (($producto['stock'] >= $item['qty']) || ($producto['formato'] == 2)) ) {
 				$productos_validos[] = $item;
 				$total += $item['subtotal'];
 			} else {
@@ -99,6 +99,22 @@ class ventas_controller extends Controller {
 		echo view('front/header', $dato);
 		echo view('front/navbar');
 		echo view('back/compras/ver_factura_usuario', $data);
+		echo view('front/footer');
+	}
+
+	public function ventas() {
+		$venta_id = $this->request->getGet('id');
+		//echo venta_id;
+		$detalle_ventas = new ventas_detalle_model();
+		$data['venta'] = $detalle_ventas->getDetalles($venta_id);
+
+		$ventas_cabecera = new ventas_cabecera_model();
+		$data['usuarios'] = $ventas_cabecera->getBuilderVentas_cabecera();
+
+		$dato['titulo'] = 'Ventas';
+		echo view('front/header', $dato);
+		echo view('front/navbar');
+		echo view('back/ventas/ventas', $data);
 		echo view('front/footer');
 	}
 }

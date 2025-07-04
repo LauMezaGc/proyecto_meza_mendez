@@ -133,7 +133,7 @@ class producto_controller extends Controller
         } else {
             $data = [
                 'nombre_prod' => $this->request->getVar('nombre_prod'),
-                'imagen' => $img->getName(),
+                'imagen' => $id['imagen'],
                 //completar con los demás campos
                 'categoria_id' => $this->request->getVar('categoria'),
                 'precio' => $this->request->getVar('precio'),

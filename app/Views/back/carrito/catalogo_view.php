@@ -15,46 +15,35 @@
 							</div>
 						</div>
 					<?php else: ?>
-						<div class="container-fluid mt-2 mb-3 text-center">
-							<h2>Todos los productos</h2>
+						<div class="container-fluid mt-3 mb-3 text-center">
+							<h2>Nuestro Catálogo</h2>
 						</div>
 
-						<div class="row">
-			    			<?php foreach($producto as $row): ?>
-						        <?php if ($row['eliminado'] != 'SI'): ?>
-						            <div class="col-md-3 text-center mb-4"> 
+						<div class="row justify-content-center mt-5">
 
-						            	<!-- Imagen -->
-						                <img src="<?= base_url('assets/uploads/' . $row['imagen']) ?>" width="150px" height="150px">
+							<?php foreach ($producto as $row): ?>
 
-						                <!-- Nombre del producto -->
-						                <h5><?= $row['nombre_prod'] ?></h5>
+								<?php if (($row['eliminado'] != 'SI') && ($row['stock'] > 0 || $row['formato'] == 2)) : ?>
+									<div class="col-md-3  mb-4 d-flex">
+										<div class="card card-hover w-100 h-100">
+											<img src="<?= base_url('assets/uploads/' . $row['imagen']) ?>" class="card-img-top" alt="<?= $row['nombre_prod'] ?>">
+										  	<div class="card-body d-flex flex-column justify-content-between ">
+										    	<h5 class="card-title"><?= $row['nombre_prod'] ?></h5>
+										    	<p class="card-text"><?= '$', $row['precio'] ?>
 
-						                <!-- Precio -->
-						                <?= 'Precio: $', $row['precio'] ?>
+										    		<?php if ($row['formato'] == 1): ?>
+										    			<span style="float: right; color: green;">
+									                		<strong>Físico</strong>
+									                	</span>
 
-						                <!-- Formato -->
-						                <?php if ($row['formato'] == 1): ?>
-						        			<?php if ($row['stock'] > 0): ?>
-									            <div class="col text-center">
-									                <?php echo 'Disponible: ', $row['stock'] ?>
-									            </div>
-								        	<?php else: ?>
-									        	<div class="col text-center">
-									                <?php echo 'No hay Stock' ?>
-									            </div>
-								        	<?php endif; ?>
+								        			<?php else: ?>								     
+									                	<span style="float: right; color: blue;">
+									                		<strong>Digital</strong>
+									                	</span>
 
-						        		<?php else: ?>
-							        		<div class="col text-center">
-							        			<?php echo 'Digital' ?>
-							        		</div>
-						        		<?php endif; ?>
-
-						        		<!-- Botones -->
-						        		<?php if ($row['stock'] > 0 || $row['formato'] == 2): ?>
-											<div class="col text-center">
-												<?php echo form_open('carrito_add'); ?>
+									            	<?php endif; ?>
+										    	</p>
+										    	<?php echo form_open('carrito_add'); ?>
 													<?php 
 														echo form_hidden('id', $row['id']);
 														echo form_hidden('precio', $row['precio']);
@@ -71,11 +60,12 @@
 													?> 
 												<?php echo form_close(); ?>
 											</div>
-										<?php endif; ?>
+										</div>
+									</div>
 
-						            </div>
-						        <?php endif; ?>
-			    			<?php endforeach; ?>
+								<?php endif; ?>
+
+							<?php endforeach; ?>
 						</div>
 					<?php endif; ?>
 				</div>

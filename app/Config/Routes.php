@@ -16,7 +16,7 @@ $routes->post('/enviar-form','usuario_controller::formValidation');
 $routes->post('/enviar-login','login_controller::auth');
 $routes->get('/panel', 'panel_controller::index', ['filter' => 'Auth']);
 $routes->get('/logout', 'login_controller::logout', ['filter' => 'Auth']);
-
+ 
 /* Rutas de Productos*/
 $routes->get('/crear', 'producto_controller::index', ['filter' => 'Auth']);
 $routes->get('/produ-form', 'producto_controller::creaproducto', ['filter' => 'Auth']);
@@ -36,10 +36,6 @@ $routes->post('/update/(:num)', 'usuario_crud_controller::update/$1', ['filter' 
 $routes->get('/borrar-user/(:num)', 'usuario_crud_controller::deletelogico/$1', ['filter' => 'Auth']);
 $routes->get('activar-user/(:num)', 'usuario_crud_controller::activar/$1', ['filter' => 'Auth']);
 
-/* Rutas de ventas */
-$routes->get('/vista_compras/(:num)', 'ventas_controller::ver_factura/$1', ['filter' => 'Auth']); 
-$routes->get('ver_factura_usuario/(:num)', 'ventas_controller::ver_facturas_usuario/$1', ['filter' => 'Auth']);
-
 /* Rutas para el carrito */
 // muestra todos los productos del catálogo
 $routes->get('/todos_p', 'carrito_controller::catalogo', ['filter' => 'Auth']);
@@ -58,6 +54,13 @@ $routes->get('/carrito_comprar', 'ventas_controller::registrar_venta', ['filter'
 // botones de sumar y restar en la vista del carrito
 $routes->get('/carrito_suma/(:any)', 'carrito_controller::suma/$1');
 $routes->get('/carrito_resta/(:any)', 'carrito_controller::resta/$1');
+
+// Rutas de compra y detalle para cliente 
+$routes->get('/vista_compras/(:num)', 'ventas_controller::ver_factura/$1', ['filter' => 'Auth']); 
+$routes->get('ver_factura_usuario/(:num)', 'ventas_controller::ver_facturas_usuario/$1', ['filter' => 'Auth']);
+
+// Vista de ventas del admin
+$routes->get('/ventas', 'ventas_controller::ventas');
 
 /* Contacto */
 $routes->get('/contacto','contacto_controller::pagContacto');

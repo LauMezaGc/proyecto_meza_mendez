@@ -76,6 +76,7 @@
 							    <li><hr class="dropdown-divider"></li>
 							    <li><a class="dropdown-item" href="usuarios">CRUD Usuarios</a></li>
 							    <li><a class="dropdown-item" href="crear">CRUD Productos</a></li>
+							    <li><a class="dropdown-item" href="ventas">Ventas</a></li>
 							    <li><hr class="dropdown-divider"></li>
 							    <li><a class="dropdown-item" href="contacto">Consultas</a></li>
 							    <li><hr class="dropdown-divider"></li>

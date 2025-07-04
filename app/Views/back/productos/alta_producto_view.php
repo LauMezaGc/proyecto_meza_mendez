@@ -71,10 +71,16 @@
 				<div class="mb-2">
 					<label for="formato" class="form-label">Formato</label>
 					<select class="form-control" name="formato" id="formato">
-						<option value="0" hidden >Seleccionar Formato</option>
+						<option value="<?= set_value('formato') ?>" hidden >Seleccionar Formato</option>
 							<option value="1">Físico</option>
 							<option value="2">Digital</option>
 					</select>
+					<!-- Error -->
+					<?php if ($validation->getError('formato')): ?>
+						<div class="alert alert-danger mt-2">
+							<?= $validation->getError('formato'); ?>
+						</div>
+					<?php endif; ?>
 				</div>
 
 				<div class="mb-2">

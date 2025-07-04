@@ -32,8 +32,8 @@
 								<td><?= $row['usuario'] ?></td>
 								<td><?= $row['total_venta'] ?></td>
 								<td><?= $row['fecha'] ?></td>
-								<td><?= $row['id'] ?></td>
-								<th><a href="<?php echo base_url('vista_compras/' . $row['id'])  ?>" class="btn btn-success btn-sm">Ver Detalle</a></th>
+								<td><?= $row['id_venta'] ?></td>
+								<th><a href="<?php echo base_url('vista_compras/' . $row['id_venta'])  ?>" class="btn btn-success btn-sm">Ver Detalle</a></th>
 							</tr>
 						<?php endforeach; ?>
 					<?php endif; ?>
