@@ -15,7 +15,7 @@
 			<a href="<?= base_url('/produ-form'); ?>" class="btn btn-success">Agregar</a>
 			<a href="<?= base_url('/eliminados'); ?>" class="btn btn-danger">Eliminados</a>
 		</div>
-		<table class="table table-hover table-dark table-responsive-md">
+		<table class="table table-hover table-dark table-responsive-md" id="users-list">
 			<thead class="table-dark">
 				<tr>
 					<th>ID</th>
@@ -54,3 +54,6 @@
 			</tbody>
 		</table>
 	</div>
+
+
+	

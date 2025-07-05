@@ -11,9 +11,9 @@ $session = session();
         </div>
     <?php else: ?>
         <div class="row container-fluid">
-            <div class="table-responsive-sm text-center">
+            <div class="table-responsive-sm text-center mt-4">
                 <h1 class="text-center">DETALLE DE VENTAS</h1>
-                <table class="table">
+                <table class="table" id="users-list">
                     <thead class="thead-dark">
                         <tr class="text-center">
                             <th>N° ORDEN</th>
@@ -62,11 +62,3 @@ $session = session();
     <?php endif; ?>
 </div>
 	
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> 
-<script>
-	$(document).ready( function() {
-		$('#users-list').Datatable();
-	} );
-</script>

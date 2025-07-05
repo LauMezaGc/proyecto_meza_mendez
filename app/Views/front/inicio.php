@@ -49,7 +49,7 @@
     <div class="fs-4 p-5">
         <a class="p-2" href="./quienes"><button class="btn btn-dark">Quienes Somos</button></a>
         <a class="p-2" href="./contacto"><button class="btn btn-dark">Contactanos</button></a>
-        <a class="p-2" href="./tienda"><button class="btn btn-dark">Nuestra Tienda</button></a>
+        <a class="p-2" href="./todos_p"><button class="btn btn-dark">Nuestra Tienda</button></a>
         <a class="p-2" href="./historia"><button class="btn btn-dark">Historia de la compañía</button></a>
     </div>
   </section>

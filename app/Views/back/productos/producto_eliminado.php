@@ -16,7 +16,7 @@
 		<div class="text-end" style="margin-bottom: 5px;">
 			<a href="<?= base_url('/crear'); ?>" class="btn btn-success">Volver</a>
 		</div>
-		<table class="table table-hover table-dark table-responsive-md">
+		<table class="table table-hover table-dark table-responsive-md" id="users-list">
 			<thead class="table-dark">
 				<tr>
 					<th>ID</th>

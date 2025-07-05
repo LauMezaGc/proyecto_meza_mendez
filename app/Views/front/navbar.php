@@ -28,16 +28,17 @@
 						  </ul>
 						</li>
 
-						<li class="nav-item dropdown">
-						  <a class="nav-link dropdown-toggle" href="./tienda" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						    Tienda
-						  </a>
-						  <ul class="dropdown-menu">
-						    <li><a class="dropdown-item" href="./tienda">Juegos Nuevos</a></li>
-						    <li><a class="dropdown-item" href="./tienda">Ofertas</a></li>
-						    <li><a class="dropdown-item" href="./tienda">Juegos fisicos</a></li>
-						  </ul>
-						</li>
+						<li class="nav-item">
+				          <a class="nav-link" href="./inicio#quehacemos" role="button">
+				            Juegos
+				          </a>
+				        </li>
+
+				        <li class="nav-item">
+				          <a class="nav-link" href="todos_p" role="button">
+				            Catálogo
+				          </a>
+				        </li>
 
 						<li class="nav-item dropdown">
 						  <a class="nav-link dropdown-toggle" href="./inicio/quehacemos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,12 +52,6 @@
 						    <li><a class="dropdown-item" href="./terminos">Terminos de uso</a></li>
 						  </ul>
 						</li>
-
-				        <li class="nav-item">
-				          <a class="nav-link" href="./inicio#quehacemos" role="button">
-				            Juegos
-				          </a>
-				        </li>
 
 					</ul>
 					<ul class="navbar-nav  mb-2 mb-lg-0">
@@ -100,7 +95,6 @@
 					    			</div>
 							    </li>
 							    <li><hr class="dropdown-divider"></li>
-							    <li><a class="dropdown-item" href="todos_p">Catálogo</a></li>
 							    <li><a class="dropdown-item" href="muestro">Carrito</a></li>
 							    <li><a class="dropdown-item" href="<?php echo base_url('ver_factura_usuario/' . $id)  ?>">Mis Compras</a></li>
 							    <li><hr class="dropdown-divider"></li>
