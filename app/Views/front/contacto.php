@@ -6,7 +6,7 @@
 <h1 class="text-" style="text-align: center; padding-top: 20px;">Contacto</h1>
 <hr class="hr1" style="padding-bottom: 2px;">
 
-
+ 
 
 	<?php if($perfil == 1): ?>
 	<!-- LISTA DE MENSAJES PARA ADMIN -->
@@ -28,7 +28,7 @@
 		<?php if(empty($consultas)): ?>
 		<div class="container-fluid">
 			<div class="alert alert-dark text-center" role="alert">
-				<h4 class="alert-heading">No hay consultas por antender</h4>
+				<h4 class="alert-heading">No hay consultas por atender</h4>
 				<p>No hay consultas disponibles en este momento.</p>
 				<hr>
 				<p class="mb-0">Por favor, regrese mas tarde</p>

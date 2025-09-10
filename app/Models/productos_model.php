@@ -40,6 +40,10 @@ class productos_model extends Model
 		return $this->findAll();
 	}
 
+	public function getProductosPorFormato($formato) {
+		return $this->where('formato', $formato)->findAll();
+	}
+
 	//protected $allowedFields = ['nombre_prod', 'imagen', 'categoria_id', 'precio', 'stock',        
 	// 'descripcion','formato', 'plataforma'];
 }

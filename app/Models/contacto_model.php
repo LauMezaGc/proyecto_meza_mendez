@@ -7,7 +7,7 @@ class contacto_model extends Model
 {
 	protected $table = 'contacto';
 	protected $primaryKey = 'id';
-	protected $allowedFields = ['usuario_id', 'asunto', 'mensaje', 'respuesta'];
+	protected $allowedFields = ['usuario_id', 'asunto', 'mensaje', 'respuesta', 'eliminado'];
 
 	public function getMensajes() {
 		//método de la clase Database que permite conectarse a la base de datos
@@ -37,6 +37,10 @@ class contacto_model extends Model
 
 	public function getMensajeAll() {
 		return $this->findAll();
+	}
+
+	public function getMensajeActivo() {
+		return $this->where('eliminado', 'NO')->findAll();
 	}
 }
 ?>

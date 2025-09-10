@@ -39,6 +39,7 @@ $routes->get('activar-user/(:num)', 'usuario_crud_controller::activar/$1', ['fil
 /* Rutas para el carrito */
 // muestra todos los productos del catálogo
 $routes->get('/todos_p', 'carrito_controller::catalogo');
+$routes->get('/catalogo-filtrado', 'carrito_controller::catalogo_filtrado');
 // carga la vista carrito parte_parte_view
 $routes->get('/muestro', 'carrito_controller::muestra', ['filter' => 'Auth']);
 // actualiza los datos del carrito

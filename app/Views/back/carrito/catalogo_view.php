@@ -1,7 +1,15 @@
 <div class="container color">
 	<div class="row">
 		<div class="col-md-1"></div> <!-- COLUMNA IZDA. GRID -->
-
+			<form method="get" action="<?= base_url('catalogo-filtrado') ?>" class="mb-4 d-flex gap-2 flex-wrap">
+        
+		        <select class="form-control" name="formato" id="formato" onchange="this.form.submit()">
+						<option value="<?= set_value('formato') ?>" hidden>Seleccionar Formato</option>
+							<option value="1">Físico</option>
+							<option value="2">Digital</option>
+							<option value="3">Sin Filtro</option>
+					</select>
+			</form>
 		<div class="col"> <!-- COLUMNA CENTRAL GRID -->
 
 			<div class="row">

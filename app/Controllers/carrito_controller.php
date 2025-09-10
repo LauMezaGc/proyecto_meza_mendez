@@ -24,6 +24,26 @@ class carrito_controller extends Controller {
 		echo view('front/footer');
 	}
 
+	public function catalogo_filtrado() {
+		$productoModel = new productos_model();
+		$formato = $this->request->getGet('formato');
+
+		if($formato == 1 || $formato == 2) {
+			$productos = $productoModel->getProductosPorFormato($formato);
+		} else {
+			$productos = $productoModel->getProductoAll();
+		}
+
+		$data['producto'] = $productos;
+		
+		$dato = ['titulo' => 'Todos los productos'];
+		echo view('front/header', $dato);
+		echo view('front/navbar');
+		echo view('back/carrito/catalogo_view', $data);
+		echo view('front/footer');
+
+	}
+
 	public function muestra() { // muestra el carrito
 		$cart = \Config\Services::cart();
 		$cart = $cart->contents();

@@ -18,7 +18,7 @@ class contacto_controller extends Controller {
         if (session()->get('perfil_id') == 1) {
         	$contacto = new contacto_model();
         	$usuarios = new usuarios_model();
-        	$dato['consultas'] = $contacto->getMensajeAll();
+        	$dato['consultas'] = $contacto->getMensajeActivo();
         	$dato['usuarios'] = $usuarios->findAll();
         	echo view("front/contacto", $dato);
         } else {
@@ -91,7 +91,7 @@ class contacto_controller extends Controller {
 	public function eliminar_consulta($id = null) {
 		$consultasM = new contacto_model();
 		$consultasM->getMensaje($id);
-		$consultasM->delete($id);
+		$consultasM->update($id, ['eliminado' => 'SI']);
 		session()->setFlashData('success', 'Consulta eliminada con éxito.');
 		return redirect()->to('contacto');
 	}
