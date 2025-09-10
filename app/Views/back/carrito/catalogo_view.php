@@ -3,7 +3,7 @@
 		<div class="col-md-1"></div> <!-- COLUMNA IZDA. GRID -->
 			<form method="get" action="<?= base_url('catalogo-filtrado') ?>" class="mb-4 d-flex gap-2 flex-wrap">
         
-		        <select class="form-control form-select-lg rounded-3 shadow" name="formato" id="formato" onchange="this.form.submit()">
+		        <select class="form-control form-select-lg rounded-3 shadow mt-5" name="formato" id="formato" onchange="this.form.submit()">
 						<option value="<?= set_value('formato') ?>" hidden>Seleccionar Formato</option>
 							<option value="1">Físico</option>
 							<option value="2">Digital</option>
