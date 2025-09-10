@@ -3,7 +3,7 @@
 		<div class="col-md-1"></div> <!-- COLUMNA IZDA. GRID -->
 			<form method="get" action="<?= base_url('catalogo-filtrado') ?>" class="mb-4 d-flex gap-2 flex-wrap">
         
-		        <select class="form-control" name="formato" id="formato" onchange="this.form.submit()">
+		        <select class="form-control form-select-lg rounded-3 shadow" name="formato" id="formato" onchange="this.form.submit()">
 						<option value="<?= set_value('formato') ?>" hidden>Seleccionar Formato</option>
 							<option value="1">Físico</option>
 							<option value="2">Digital</option>
@@ -18,13 +18,13 @@
 					<?php if(!$producto): ?>
 
 						<div class="container-fluid">
-							<div class="text-center">
-								<h2>No hay productos</h2>
+							<div class="text-center text-danger-emphasis">
+								<h1>No hay productos disponibles</h1>
 							</div>
 						</div>
 					<?php else: ?>
 						<div class="container-fluid mt-3 mb-3 text-center">
-							<h2>Nuestro Catálogo</h2>
+							<h1>Nuestro Catálogo</h1>
 						</div>
 
 						<div class="row justify-content-center mt-5">
@@ -33,7 +33,7 @@
 
 								<?php if (($row['eliminado'] != 'SI') && ($row['stock'] > 0 || $row['formato'] == 2)) : ?>
 									<div class="col-md-3  mb-4 d-flex">
-										<div class="card card-hover w-100 h-100">
+										<div class="card card-hover rounded-2 bg-body-secondary shadow w-100 h-100">
 											<img src="<?= base_url('assets/uploads/' . $row['imagen']) ?>" class="card-img-top" alt="<?= $row['nombre_prod'] ?>">
 										  	<div class="card-body d-flex flex-column justify-content-between ">
 										    	<h5 class="card-title"><?= $row['nombre_prod'] ?></h5>
@@ -59,7 +59,7 @@
 														echo form_hidden('imagen', $row['imagen']);
 																	
 														$btn = array(
-															'class' => 'btn btn-secondary',
+															'class' => 'btn btn-primary rounded-2',
 															'value' => 'Agregar al carrito',
 															'name' => 'action'
 														);
