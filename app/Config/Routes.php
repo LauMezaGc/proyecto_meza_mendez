@@ -18,23 +18,23 @@ $routes->get('/panel', 'panel_controller::index', ['filter' => 'Auth']);
 $routes->get('/logout', 'login_controller::logout', ['filter' => 'Auth']);
  
 /* Rutas de Productos*/
-$routes->get('/crear', 'producto_controller::index', ['filter' => 'Auth']);
-$routes->get('/produ-form', 'producto_controller::creaproducto', ['filter' => 'Auth']);
-$routes->post('/enviar-prod', 'producto_controller::store', ['filter' => 'Auth']);
-$routes->get('/editar/(:num)', 'producto_controller::singleProducto/$1', ['filter' => 'Auth']);
-$routes->post('/modifica/(:num)', 'producto_controller::modifica/$1', ['filter' => 'Auth']);
-$routes->get('/borrar/(:num)', 'producto_controller::borrarproducto/$1', ['filter' => 'Auth']);
-$routes->get('/eliminados', 'producto_controller::eliminados', ['filter' => 'Auth']);
-$routes->get('/activar_prod/(:num)', 'producto_controller::activarproducto/$1', ['filter' => 'Auth']);
+$routes->get('/crear', 'producto_controller::index', ['filter' => 'AdminFilter']);
+$routes->get('/produ-form', 'producto_controller::creaproducto', ['filter' => 'AdminFilter']);
+$routes->post('/enviar-prod', 'producto_controller::store', ['filter' => 'AdminFilter']);
+$routes->get('/editar/(:num)', 'producto_controller::singleProducto/$1', ['filter' => 'AdminFilter']);
+$routes->post('/modifica/(:num)', 'producto_controller::modifica/$1', ['filter' => 'AdminFilter']);
+$routes->get('/borrar/(:num)', 'producto_controller::borrarproducto/$1', ['filter' => 'AdminFilter']);
+$routes->get('/eliminados', 'producto_controller::eliminados', ['filter' => 'AdminFilter']);
+$routes->get('/activar_prod/(:num)', 'producto_controller::activarproducto/$1', ['filter' => 'AdminFilter']);
 
 /* Rutas de Usuarios */
-$routes->get('/usuarios', 'usuario_crud_controller::index', ['filter' => 'Auth']);
-$routes->get('/user-form', 'usuario_crud_controller::creausuario', ['filter' => 'Auth']);
-$routes->post('/crear-user', 'usuario_crud_controller::store', ['filter' => 'Auth']);
-$routes->get('/editar-user/(:num)', 'usuario_crud_controller::singleUser/$1', ['filter' => 'Auth']);
-$routes->post('/update/(:num)', 'usuario_crud_controller::update/$1', ['filter' => 'Auth']);
-$routes->get('/borrar-user/(:num)', 'usuario_crud_controller::deletelogico/$1', ['filter' => 'Auth']);
-$routes->get('activar-user/(:num)', 'usuario_crud_controller::activar/$1', ['filter' => 'Auth']);
+$routes->get('/usuarios', 'usuario_crud_controller::index', ['filter' => 'AdminFilter']);
+$routes->get('/user-form', 'usuario_crud_controller::creausuario', ['filter' => 'AdminFilter']);
+$routes->post('/crear-user', 'usuario_crud_controller::store', ['filter' => 'AdminFilter']);
+$routes->get('/editar-user/(:num)', 'usuario_crud_controller::singleUser/$1', ['filter' => 'AdminFilter']);
+$routes->post('/update/(:num)', 'usuario_crud_controller::update/$1', ['filter' => 'AdminFilter']);
+$routes->get('/borrar-user/(:num)', 'usuario_crud_controller::deletelogico/$1', ['filter' => 'AdminFilter']);
+$routes->get('activar-user/(:num)', 'usuario_crud_controller::activar/$1', ['filter' => 'AdminFilter']);
 
 /* Rutas para el carrito */
 // muestra todos los productos del catálogo
@@ -60,7 +60,7 @@ $routes->get('/vista_compras/(:num)', 'ventas_controller::ver_factura/$1', ['fil
 $routes->get('ver_factura_usuario/(:num)', 'ventas_controller::ver_facturas_usuario/$1', ['filter' => 'Auth']);
 
 // Vista de ventas del admin
-$routes->get('/ventas', 'ventas_controller::ventas');
+$routes->get('/ventas', 'ventas_controller::ventas', ['filter' => 'AdminFilter']);
 
 /* Contacto */
 $routes->get('/contacto','contacto_controller::pagContacto');

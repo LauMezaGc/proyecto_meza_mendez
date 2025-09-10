@@ -1,16 +1,16 @@
 <br>
 <div class="container-fluid" id="carrito"> 
 	<div class="cart"> 
-		<div class="heading"> 
+		<div class="heading">
+			<!-- Mostrar mensaje Flash si existe --> 
+			<?php if (session()->getFlashdata('mensaje')): ?> 
+				<div class="alert alert-warning alert-dismissible fade show mt-3 mx-3" role="alert"> 
+					<?= session()->getFlashdata('mensaje') ?> 
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label= "Cerrar"></button>
+				</div> 
+			<?php endif ; ?>  
 			<h2 class="text-center">Productos en tu Carrito</h2> 
 		</div> 
-		<!-- Mostrar mensaje Flash si existe --> 
-		<?php if (session()->getFlashdata('mensaje')): ?> 
-			<div class="alert alert-warning alert-dismissible fade show mt-3 mx-3" role="alert"> 
-				<?= session()->getFlashdata('mensaje') ?> 
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label= "Cerrar"></button>
-			</div> 
-		<?php endif ; ?> 
 	</div> 
 </div> 
 

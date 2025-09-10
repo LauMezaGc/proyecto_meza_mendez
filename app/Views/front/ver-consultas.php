@@ -16,7 +16,7 @@
 <div class="container">
 	<div class="alert alert-dark text-center" role="alert">
 		<h4 class="alert-heading">No hay consultas para listar</h4>
-		<p>No ha hecho consultas o no el servicio de consultas no esta disponible en este momento.</p>
+		<p>No ha hecho consultas o el servicio de consultas no esta disponible en este momento.</p>
 		<hr>
 		<p class="mb-0">Por favor, regrese mas tarde o haga una consulta.</p>
 	</div>

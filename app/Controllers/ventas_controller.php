@@ -91,15 +91,20 @@ class ventas_controller extends Controller {
 
 	// función del cliente para ver el detalle de sus facturas de compras
 	public function ver_facturas_usuario($id_usuario) {
-		$ventas = new ventas_cabecera_model();
+		$session = session();
+		if ($session->get('id') == $id_usuario) {
+			$ventas = new ventas_cabecera_model();
 
-		$data['ventas'] = $ventas->getVentas($id_usuario);
-		$dato['titulo'] = "Todas mis compras";
+			$data['ventas'] = $ventas->getVentas($id_usuario);
+			$dato['titulo'] = "Todas mis compras";
 
-		echo view('front/header', $dato);
-		echo view('front/navbar');
-		echo view('back/compras/ver_factura_usuario', $data);
-		echo view('front/footer');
+			echo view('front/header', $dato);
+			echo view('front/navbar');
+			echo view('back/compras/ver_factura_usuario', $data);
+			echo view('front/footer');
+		} else {
+			return redirect()->to('404');
+		}
 	}
 
 	public function ventas() {
